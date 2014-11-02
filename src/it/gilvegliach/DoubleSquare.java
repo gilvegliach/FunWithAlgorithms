@@ -20,7 +20,9 @@ public class DoubleSquare {
      * memory. 
      */
     public static int countDecompositions(int n) {
-        if (n < 0) throw new IllegalArgumentException("n < 0");
+        if (n < 0) {
+			throw new IllegalArgumentException("n must be >= 0");
+		}
         
         // Let n = s^2 + t^2, then:
         //    s <= sqrt(n / 2)     <=>
