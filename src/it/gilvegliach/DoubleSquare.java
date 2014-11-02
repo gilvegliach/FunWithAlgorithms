@@ -1,5 +1,6 @@
 package it.gilvegliach;
 
+import static it.gilvegliach.Utils.checkCondArg;
 import static it.gilvegliach.Utils.closeQuietly;
 
 import java.io.FileReader;
@@ -20,9 +21,7 @@ public class DoubleSquare {
      * memory. 
      */
     public static int countDecompositions(int n) {
-        if (n < 0) {
-			throw new IllegalArgumentException("n must be >= 0");
-		}
+        checkCondArg(n >= 0, "n must be >= 0");
         
         // Let n = s^2 + t^2, then:
         //    s <= sqrt(n / 2)     <=>
@@ -44,10 +43,8 @@ public class DoubleSquare {
     }
     
     public static void main(String[] args) {
-        if (args.length != 1) {
-            throw new IllegalArgumentException(
-                "args[0] must be a pathname and the only argument");
-        }
+        checkCondArg(args.length == 1, 
+            "args[0] must be a pathname and the only argument");
         
         int lineNumber = 1;
         BufferedReader br = null;
@@ -55,17 +52,13 @@ public class DoubleSquare {
             br = new BufferedReader(new FileReader(args[0]));
             String line = br.readLine();
             int n = Integer.parseInt(line);
-            if (n < 1 || n > 100) {
-                throw new IllegalArgumentException("n must be in [1, 100]");
-            }
+            checkCondArg(1 <= n && n <= 100, "n must be in [1, 100]");
             lineNumber++;
+            
             while (n-- > 0 && (line = br.readLine()) != null) {
                 int k = Integer.parseInt(line);
-                if (k < 0) {
-                    // k < 2147483647 checked in parseInt
-                    throw new IllegalArgumentException(
-                        "x must be in [1, 2147483647]");
-                }
+                // k < 2147483647 checked in parseInt
+                checkCondArg(k >= 0, "x must be in [0, 2147483647]");
                 int count = countDecompositions(k);
                 lineNumber++;
                 System.out.println(count);
@@ -76,7 +69,7 @@ public class DoubleSquare {
             e1.printStackTrace(System.err);
         } catch (IllegalArgumentException e2) {
             System.err.println("Line " + lineNumber + 
-                ": n must be in [1, 100], x in [1, 2147483647]");
+                ": n must be in [1, 100], x in [0, 2147483647]");
             e2.printStackTrace(System.err);
         } catch (FileNotFoundException e3) {
             System.err.println("File not found, was: " + args[0]);

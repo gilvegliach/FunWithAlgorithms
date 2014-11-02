@@ -11,7 +11,7 @@ import org.junit.runners.JUnit4;
 import it.gilvegliach.DoubleSquare;
 
 public class DoubleSquareTest {
-    final static String dataDir = "test/data/";
+    final static String dataDir = "data/";
     
     @Test(expected = IllegalArgumentException.class)
     public void countDecompositionsNegative() {

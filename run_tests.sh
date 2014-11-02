@@ -1,10 +1,9 @@
 #!/bin/bash
-#javac -d gen -cp gen:junit/* test/DoubleSquareTest.java 
+
+# Test 1
+echo Running DoubleSquare tests
 java -cp gen:junit/* org.junit.runner.JUnitCore DoubleSquareTest
 
-#java -cp gen DoubleSquare data/double_square1.txt 
-
-#java -cp gen DoubleSquare data/double_square_err1.txt 
-#java -cp gen DoubleSquare data/double_square_err2.txt 
-#java -cp gen DoubleSquare data/double_square_err3.txt 
-#java -cp gen DoubleSquare data/empty.txt
+# Test 2
+echo Running PrimeList tests
+java -cp gen:junit/* org.junit.runner.JUnitCore PrimeListTest
