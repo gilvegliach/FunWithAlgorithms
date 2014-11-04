@@ -3,6 +3,7 @@ SRC=src/it/gilvegliach
 TEST=test
 
 echo Building projects
+mkdir -p gen
 javac -d gen ${SRC}/Utils.java
 javac -d gen -cp gen ${SRC}/DoubleSquare.java
 javac -d gen -cp gen ${SRC}/PrimeList.java
