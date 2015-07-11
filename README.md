@@ -41,7 +41,7 @@ itself. To run an average case example:
 To run it on the maximum input possible:
 
     ```sh
-       time java -cp gen it.gilvegliach.DoubleSquare data/double_square2.txt
+    time java -cp gen it.gilvegliach.DoubleSquare data/double_square2.txt
 	```
 	
 2. The second exercise is more sofisticated and all the tricks and bit fiddling are to achieve performance on the brink of the theoretical limit. It is
@@ -59,15 +59,13 @@ I could not write a variant as the specs are really specific on the
 requirements. See the code to know what to comment in and out to re-build the
 project. Finally, run the project with:
 
-	```sh
+    ```sh
     time java -cp gen it.gilvegliach.PrimeList data/prime_list2.txt
-	```
+    ```
 
 Then, this output should corrispond to PI(4294967293), where PI is the
-mathematical prime-counting function. (Note the -1) Check the value at this
-link:
-
-       http://www.wolframalpha.com/input/?i=PI%284294967293%29
+mathematical prime-counting function. (Note the -1) Check the value on
+[Wolfram Alpha](http://www.wolframalpha.com/input/?i=PI%284294967293%29).
 
 The total time spent in the method is less than 18 seconds on my Macbook Pro 15'
 late 2008 (Core 2 Duo 2.4 Ghz), and about 7 seconds on my work's Macbook Pro 15'
