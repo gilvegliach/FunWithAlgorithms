@@ -15,17 +15,17 @@ exercises: mind especially trailing spaces/empty lines.
 
 Build with:
 ```sh
-    ./build.sh
+./build.sh
 ```
 
 Run test with:
 ```sh
-    ./run_tests.sh
+./run_tests.sh
 ```
  
 Clean with:
 ```sh
-    ./clean.sh
+./clean.sh
 ```
 
 ## Comments
@@ -59,9 +59,9 @@ I could not write a variant as the specs are really specific on the
 requirements. See the code to know what to comment in and out to re-build the
 project. Finally, run the project with:
 
-    ```sh
-    time java -cp gen it.gilvegliach.PrimeList data/prime_list2.txt
-    ```
+```sh
+time java -cp gen it.gilvegliach.PrimeList data/prime_list2.txt
+```
 
 Then, this output should corrispond to PI(4294967293), where PI is the
 mathematical prime-counting function. (Note the -1) Check the value on
