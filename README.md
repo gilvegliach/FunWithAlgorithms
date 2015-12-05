@@ -10,22 +10,18 @@ exercises: mind especially trailing spaces/empty lines.
 
 ## Requirements
 
-1. java, javac version 6 or above and installed in $PATH
-2. bash to run the scripts
+To build and run the projects you need java 6 and javac, or above.
 
-Build with:
+Build and run tests with:
+
 ```sh
-./build.sh
+./gradlew build
 ```
 
-Run test with:
-```sh
-./run_tests.sh
-```
- 
 Clean with:
+
 ```sh
-./clean.sh
+./gradlew clean
 ```
 
 ## Comments
@@ -36,12 +32,13 @@ Both exercises have been *extremely* optimized.
 itself. To run an average case example:
 
 	```sh
-    java -cp gen it.gilvegliach.DoubleSquare data/double_square1.txt
+    CP="utils/build/libs/*:doublesquare/build/libs/*:primelist/build/libs/*"
+    java -cp $CP it.gilvegliach.DoubleSquare doublesquare/src/test/resources/double_square1.txt
 	```
 To run it on the maximum input possible:
 
     ```sh
-    time java -cp gen it.gilvegliach.DoubleSquare data/double_square2.txt
+    time java -cp $CP it.gilvegliach.DoubleSquare doublesquare/src/test/resources/double_square2.txt
 	```
 	
 2. The second exercise is more sofisticated and all the tricks and bit fiddling are to achieve performance on the brink of the theoretical limit. It is
@@ -49,7 +46,7 @@ basically the old good Eratosthenes' sieve with segmentation and
 parallelization: the former to lower the memory limit to O(sqrt(n)), the second one to speed it up. A bounded thread pool has been written to avoid out of memory errors; memory is saved also using a bit array instead of arrays. The time complexity is pseudolinear, that is O(n log(log(n))). To run it in an average case:
 
 	```sh
-    java -cp gen it.gilvegliach.PrimeList data/prime_list1.txt
+    java -cp $CP it.gilvegliach.PrimeList primelist/src/test/resources/prime_list1.txt
 	```
 	
 To run it on the maximum input possible I *strongly* suggest that you re-build
@@ -60,7 +57,7 @@ requirements. See the code to know what to comment in and out to re-build the
 project. Finally, run the project with:
 
 ```sh
-time java -cp gen it.gilvegliach.PrimeList data/prime_list2.txt
+time java -cp $CP it.gilvegliach.PrimeList primelist/src/test/resources/prime_list2.txt
 ```
 
 Then, this output should corrispond to PI(4294967293), where PI is the

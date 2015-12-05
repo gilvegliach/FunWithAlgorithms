@@ -11,7 +11,7 @@ import org.junit.runners.JUnit4;
 import it.gilvegliach.PrimeList;
 
 public class PrimeListTest {
-    final static String dataDir = "data/";
+    final static String dataDir = "src/test/resources/";
     
     @Test(expected = IllegalArgumentException.class)
     public void sieveNegative() {

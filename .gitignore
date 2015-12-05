@@ -1,1 +1,9 @@
-gen
+build/*
+doublesquare/build/*
+primelist/build/*
+utils/build/*
+.DS_Store
+.gradle/
+doublesquare/.gradle
+primelist/.gradle
+utils/.gradle
